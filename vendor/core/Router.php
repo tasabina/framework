@@ -1,11 +1,9 @@
 <?php
 
+
 class Router
 {
-//    public function __construct()
-//    {
-//        echo ("Hello World");
-//    }
+
     protected static $routes = [];
     protected static $route = [];
 
@@ -40,19 +38,18 @@ class Router
     }
 
 
-    /**
-     * @param $url
-     */
+
     public static function dispatch($url){
         if (self::matchRoute($url)){
-            $controller = self::upperCamelCase(self::$route['controller']);
+            $controller = self::upperCamelCase($controller = self::$route['controller']);
             if(class_exists($controller)){
                 $cObj = new $controller;
-                $action = self::$route['action'];
-                if(method_exists($cObj, $action)){
-                    $cObj => $action();
-                }else{
-                    echo "Method<b>$controller::$action</b>not founded";
+                $action = self::lowerCamelCase(self::$route['action']).'Action';
+                if (method_exists($cObj, $action)){
+                    $cObj->$action();
+                }
+                else{
+                    echo "Method <b>$controller::$action</b> not founded";
                 }
             }
             else{
@@ -65,6 +62,10 @@ class Router
     }
 
     protected static function upperCamelCase($name){
-        return str_repeat(' ','', ucwords(str_repeat('-',' ', $name)));
+        return str_replace(' ', '', ucwords(str_replace('-', ' ', $name)));
+    }
+
+    protected static function lowerCamelCase($name){
+        return lcfirst(self::upperCamelCase($name)) ;
     }
 }

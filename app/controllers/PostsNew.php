@@ -8,8 +8,8 @@
 
 class PostsNew
 {
-    public function index()
+    public function indexAction()
     {
-        echo 'PostsNew::__construct()';
+        echo 'Posts::index()';
     }
 }
