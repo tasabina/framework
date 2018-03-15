@@ -40,12 +40,20 @@ class Router
     }
 
 
-
+    /**
+     * @param $url
+     */
     public static function dispatch($url){
         if (self::matchRoute($url)){
             $controller = self::upperCamelCase(self::$route['controller']);
             if(class_exists($controller)){
-                echo 'Ok';
+                $cObj = new $controller;
+                $action = self::$route['action'];
+                if(method_exists($cObj, $action)){
+                    $cObj => $action();
+                }else{
+                    echo "Method<b>$controller::$action</b>not founded";
+                }
             }
             else{
                 echo "Controller <b>$controller</b> not founded";

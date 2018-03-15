@@ -8,5 +8,8 @@
 
 class Posts
 {
-
+    public function _index()
+    {
+        echo 'Posts::__construct()';
+    }
 }
