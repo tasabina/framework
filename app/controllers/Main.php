@@ -6,6 +6,8 @@
  * Time: 12:05 AM
  */
 
+    namespace app\controllers;
+
 class Main
 {
     public function indexAction()

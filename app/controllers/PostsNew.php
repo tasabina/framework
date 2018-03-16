@@ -6,6 +6,8 @@
  * Time: 12:09 AM
  */
 
+    namespace app\controllers;
+
 class PostsNew
 {
     public function indexAction()
