@@ -9,6 +9,7 @@
     define('CORE', dirname(__DIR__) . '/vendor/core');
     define('ROOT', dirname(__DIR__));
     define('APP', dirname(__DIR__) . '/app');
+    define('LAYOUT', 'default');
 
 //    require '../vendor/core/Router.php';
     require '../vendor/libs/function.php';
@@ -35,12 +36,11 @@
     Router::add('^$',['controller' => 'Main', 'action' => 'index'] );
     Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 
-    debug(Router::getRoutes());
 
     Router::dispatch($query);
 
-    if(Router::matchRoute($query)){
-        debug(Router::getRoute());
-    }else{
-        echo '404';
-    }
+//    if(Router::matchRoute($query)){
+//        debug(Router::getRoute());
+//    }else{
+//        echo '404';
+//    }

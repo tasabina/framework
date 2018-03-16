@@ -6,13 +6,24 @@
  * Time: 12:05 AM
  */
 
-    namespace app\controllers;
+namespace app\controllers;
 
-class Main
+
+
+class Main extends App
 {
+    public $layout = 'main';
+
     public function indexAction()
     {
-        echo 'Posts::index()';
+//        $this->layout = false;
+//       $this->layout = 'default';
+//       $this->view = 'test';
+
+        $name = 'Sabina';
+        $hi = 'Hello';
+        
+        $this->set(compact('name', 'hi'));
     }
 
 }
