@@ -13,9 +13,9 @@
 
 //    require '../vendor/core/Router.php';
     require '../vendor/libs/function.php';
-//    require '../app/controllers/Main.php';
-//    require '../app/controllers/Posts.php';
-//    require '../app/controllers/PostsNew.php';
+//    require '../app/controllers/MainController.php';
+//    require '../app/controllers/PostsController.php';
+//    require '../app/controllers/PostsNewController.php';
 
     spl_autoload_register(function ($class){
         $file = ROOT . '/' . str_replace('\\', '/', $class) . '.php';
