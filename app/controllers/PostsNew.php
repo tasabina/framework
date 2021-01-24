@@ -6,7 +6,12 @@
  * Time: 12:09 AM
  */
 
-class PostsNew
-{
+    namespace app\controllers;
 
+class PostsNew extends App
+{
+    public function indexAction()
+    {
+        echo 'Posts::index()';
+    }
 }
